@@ -122,7 +122,7 @@ describe("AI Agent Catalog", () => {
       automaticUpgrade: false,
       credentialAccess: false,
       userConfirmedActions: true,
-      supportedPlatform: "macos",
+      supportedPlatform: process.platform === "darwin" ? "macos" : "unsupported",
     });
   });
 
