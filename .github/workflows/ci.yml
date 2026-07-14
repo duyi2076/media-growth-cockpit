@@ -20,9 +20,6 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    env:
-      V2_VAULT_ROOT: ${{ runner.temp }}/cockpit-vault
-      COCKPIT_STATE_ROOT: ${{ runner.temp }}/cockpit-state
 
     steps:
       - name: Checkout
@@ -33,6 +30,12 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
+
+      - name: Prepare isolated runtime paths
+        run: |
+          mkdir -p "$RUNNER_TEMP/cockpit-state-parent"
+          echo "V2_VAULT_ROOT=$RUNNER_TEMP/cockpit-vault" >> "$GITHUB_ENV"
+          echo "COCKPIT_STATE_ROOT=$RUNNER_TEMP/cockpit-state-parent/state" >> "$GITHUB_ENV"
 
       - name: Install locked dependencies
         run: npm ci
