@@ -1,0 +1,77 @@
+:root {
+  /* 页面背景：暖灰白 */
+  --color-bg: #f9f8f6;
+  --color-surface: #ffffff;
+  --color-surface-raised: #ffffff;
+
+  /* 主要文字：石墨黑 */
+  --color-text-primary: #1f2421;
+  --color-text-secondary: #5a6360;
+  --color-text-tertiary: #8a928e;
+  --color-text-inverse: #ffffff;
+
+  /* 主要强调：深青绿 */
+  --color-primary: #0d5c55;
+  --color-primary-hover: #0a4842;
+  --color-primary-subtle: #e6f2f1;
+
+  /* 增长提醒：琥珀色 */
+  --color-amber: #b38600;
+  --color-amber-subtle: #fff7e0;
+
+  /* 风险提醒：低饱和红 */
+  --color-risk: #b0453b;
+  --color-risk-subtle: #fcebe9;
+
+  /* 成功/完成 */
+  --color-success: #2d6a4f;
+  --color-success-subtle: #e8f5ee;
+
+  /* 边框：浅灰 */
+  --color-border: #e2e2df;
+  --color-border-subtle: #eeedea;
+
+  /* 阴影：极淡 */
+  --shadow-sm: 0 1px 2px rgba(31, 36, 33, 0.04);
+  --shadow-md: 0 2px 6px rgba(31, 36, 33, 0.06);
+
+  /* 布局 */
+  --sidebar-width: 220px;
+  --topbar-height: 64px;
+  --detail-drawer-width: 420px;
+  --workspace-gap: 16px;
+  --workspace-padding: 20px 24px 24px;
+
+  /* 字体 */
+  --font-sans: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  /* 字号 */
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 14px;
+  --text-md: 15px;
+  --text-lg: 18px;
+  --text-xl: 22px;
+  --text-2xl: 28px;
+
+  /* 圆角 */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #181a19;
+    --color-surface: #202321;
+    --color-surface-raised: #282b29;
+    --color-text-primary: #f0f2f1;
+    --color-text-secondary: #b5bcb9;
+    --color-text-tertiary: #838a86;
+    --color-border: #353937;
+    --color-border-subtle: #2a2d2b;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.24);
+  }
+}

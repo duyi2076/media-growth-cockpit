@@ -1,0 +1,44 @@
+{
+  "productName": "自媒体增长驾驶舱",
+  "ownerName": "使用者名称",
+  "creatorPositioning": "科普博主",
+  "campaignName": "90 天增长计划",
+  "growthTarget": 20000,
+  "startDate": null,
+  "deadline": null,
+  "projectRelativeDir": "50-进行中项目/科普增长计划",
+  "baselineDate": "2000-01-01",
+  "accounts": [
+    {
+      "id": "your-account-id",
+      "platform": "小红书",
+      "displayName": "你的账号名",
+      "handle": "your-handle",
+      "profileUrl": "https://www.xiaohongshu.com/user/profile/replace-with-real-id",
+      "baselineFollowers": 0,
+      "currentFollowers": 0,
+      "asOf": "2000-01-01",
+      "sourceEvidence": "请替换为真实后台截图或公开主页核验说明",
+      "active": true
+    },
+    {
+      "id": "your-wechat-account",
+      "platform": "公众号",
+      "displayName": "你的公众号名",
+      "handle": "your-wechat-handle",
+      "profileUrl": "https://mp.weixin.qq.com/",
+      "baselineFollowers": 0,
+      "currentFollowers": 0,
+      "asOf": "2000-01-01",
+      "sourceEvidence": "请替换为真实后台截图或公开主页核验说明",
+      "active": true
+    }
+  ],
+  "actionTargets": {
+    "articles": 100,
+    "videos": 60,
+    "publications": 100,
+    "dailyReviews": 60,
+    "accountBreakdowns": 10
+  }
+}

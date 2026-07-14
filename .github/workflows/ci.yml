@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - "release/**"
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      V2_VAULT_ROOT: ${{ runner.temp }}/cockpit-vault
+      COCKPIT_STATE_ROOT: ${{ runner.temp }}/cockpit-state
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Use repository Node version
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Initialize a sanitized temporary Vault
+        run: npm run setup:vault -- --config ./setup.example.json
+
+      - name: Build and validate the Vault index
+        run: |
+          npm run index
+          npm run validate:data
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test frontend
+        run: npm test
+
+      - name: Test local write services
+        run: npm run test:server
+
+      - name: Test indexer
+        run: npm run test:indexer
+
+      - name: Build production bundle
+        run: npm run build
+
+      - name: Audit production and development dependencies
+        run: npm audit --audit-level=high

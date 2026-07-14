@@ -1,0 +1,26 @@
+node_modules/
+dist/
+.npm-cache/
+.npmrc
+
+# Runtime indexes generated from the private Obsidian vault.
+public/data/index.json
+
+# Local QA screenshots may contain account and content data.
+qa/
+
+# Local settings and secrets.
+.env
+.env.*
+!.env.example
+*.local
+setup.local.json
+*.log
+
+# Generated test and build artifacts.
+coverage/
+.vite/
+*.tmp
+*.temp
+*.bak
+.DS_Store
